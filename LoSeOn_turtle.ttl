@@ -43,7 +43,11 @@ LoSeOn:Cost rdf:type owl:Class ;
 
 LoSeOn:Economic rdf:type owl:Class ;
                 
-                rdfs:subClassOf LoSeOn:NonMandatory .
+                rdfs:label "Economic"@en ;
+                
+                rdfs:subClassOf LoSeOn:NonMandatory ;
+                
+                rdfs:comment "Economic contraints aim at delivering complex logistics services in a cheap way."@en .
 
 
 
@@ -51,13 +55,22 @@ LoSeOn:Economic rdf:type owl:Class ;
 
 LoSeOn:Environmental rdf:type owl:Class ;
                      
-                     rdfs:subClassOf LoSeOn:NonMandatory .
+                     rdfs:label "Environmental"@en ;
+                     
+                     rdfs:subClassOf LoSeOn:NonMandatory ;
+                     
+                     rdfs:comment "Environmental constraints aim at delivering complex logistics services in a einvironmentally friendly way, e.g. with a reduced carbon footprint."@en .
 
 
 
 ###  https://github.com/Michael-Gloeckner/LoSeOn#Flow
 
-LoSeOn:Flow rdf:type owl:Class .
+LoSeOn:Flow rdf:type owl:Class ;
+            
+            rdfs:label """Flow
+"""@en ;
+            
+            rdfs:comment "The several flows connect two or more logistics services with each other. Different kinds of flows can be distinguished."@en .
 
 
 
@@ -79,13 +92,24 @@ LoSeOn:Location rdf:type owl:Class ;
 
 ###  https://github.com/Michael-Gloeckner/LoSeOn#LogisticsService
 
-LoSeOn:LogisticsService rdf:type owl:Class .
+LoSeOn:LogisticsService rdf:type owl:Class ;
+                        
+                        rdfs:label """LogisticsService
+"""@en ;
+                        
+                        rdfs:comment """A Logistics Service is characterized by general service characteristics. This includes a pre-defined set of inputs, outputs and transformations that take place during its execution. Further important is the usage of resources and the application of knowledge and skills within activities or processes in order to generate benefit for another entity or for the entity itself.
+
+A Logistics Service is a Service conducted within the logistics domain and logistics purpose."""@en .
 
 
 
 ###  https://github.com/Michael-Gloeckner/LoSeOn#LogisticsStakeholder
 
-LoSeOn:LogisticsStakeholder rdf:type owl:Class .
+LoSeOn:LogisticsStakeholder rdf:type owl:Class ;
+                            
+                            rdfs:label "LogisticsStakeholder"@en ;
+                            
+                            rdfs:comment "A LogisticsStakeholder is a natural or a legal person involved in the planning, operation or monitoring of a LogisticsService. It either provides, uses or manages the service or is in another way connected to it."@en .
 
 
 
@@ -93,9 +117,13 @@ LoSeOn:LogisticsStakeholder rdf:type owl:Class .
 
 LoSeOn:Mandatory rdf:type owl:Class ;
                  
+                 rdfs:label "Mandatory"@en ;
+                 
                  rdfs:subClassOf LoSeOn:Contraints ;
                  
-                 owl:disjointWith LoSeOn:NonMandatory .
+                 owl:disjointWith LoSeOn:NonMandatory ;
+                 
+                 rdfs:comment "Mandatory contraints are requirements by official, public or governmental institutions."@en .
 
 
 
@@ -103,7 +131,11 @@ LoSeOn:Mandatory rdf:type owl:Class ;
 
 LoSeOn:NonMandatory rdf:type owl:Class ;
                     
-                    rdfs:subClassOf LoSeOn:Contraints .
+                    rdfs:label "NonMandatory"@en ;
+                    
+                    rdfs:subClassOf LoSeOn:Contraints ;
+                    
+                    rdfs:comment "Non-mandatory contraints are requirements by customers. They are not obligatory like the mandatory contraints from legal institutions."@en .
 
 
 
@@ -133,13 +165,22 @@ LoSeOn:Quantity rdf:type owl:Class ;
 
 ###  https://github.com/Michael-Gloeckner/LoSeOn#Resource
 
-LoSeOn:Resource rdf:type owl:Class .
+LoSeOn:Resource rdf:type owl:Class ;
+                
+                rdfs:label """Resource
+"""@en ;
+                
+                rdfs:comment "A Resource is consumed during the conduction of a LogisticsService. It is either available again afterward (such as warehouse capacity or a truck) or not (such as some kind of one-way packaging)."@en .
 
 
 
 ###  https://github.com/Michael-Gloeckner/LoSeOn#SLA
 
-LoSeOn:SLA rdf:type owl:Class .
+LoSeOn:SLA rdf:type owl:Class ;
+           
+           rdfs:label "ServiceLevelAgreements"@en ;
+           
+           rdfs:comment "ServiceLevelAgreements determine the quality of the service, e.g. lead time, accuracy."@en .
 
 
 
@@ -147,7 +188,11 @@ LoSeOn:SLA rdf:type owl:Class .
 
 LoSeOn:Social rdf:type owl:Class ;
               
-              rdfs:subClassOf LoSeOn:NonMandatory .
+              rdfs:label "Social"@en ;
+              
+              rdfs:subClassOf LoSeOn:NonMandatory ;
+              
+              rdfs:comment "Social contraints aim at delivering complex logistics services in a socially reasonable way, e.g. with a guaranteed minimum wage."@en .
 
 
 
@@ -161,7 +206,11 @@ LoSeOn:Time rdf:type owl:Class ;
 
 ###  https://github.com/Michael-Gloeckner/LoSeOn#Transformation
 
-LoSeOn:Transformation rdf:type owl:Class .
+LoSeOn:Transformation rdf:type owl:Class ;
+                      
+                      rdfs:label "Transformation"@en ;
+                      
+                      rdfs:comment "Transformation contains the possible dimensions that could be changed during a LogisticsService."@en .
 
 
 
