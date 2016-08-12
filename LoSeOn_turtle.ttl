@@ -16,9 +16,148 @@
 
 #################################################################
 #
+#    Object Properties
+#
+#################################################################
+
+
+###  https://github.com/Michael-Gloeckner/LoSeOn#IsConnectedBy
+
+LoSeOn:IsConnectedBy rdf:type owl:ObjectProperty ;
+                     
+                     rdfs:label "IsConnectedBy"@en ;
+                     
+                     rdfs:comment "describes the connection of something by something"@en ;
+                     
+                     rdfs:range LoSeOn:Flow ;
+                     
+                     rdfs:domain LoSeOn:LogisticsService .
+
+
+
+###  https://github.com/Michael-Gloeckner/LoSeOn#IsConsumedBy
+
+LoSeOn:IsConsumedBy rdf:type owl:ObjectProperty ;
+                    
+                    rdfs:label "IsConsumedBy"@en ;
+                    
+                    rdfs:comment "describes the consumption of something by something"@en ;
+                    
+                    owl:inverseOf LoSeOn:IsProvidedBy ;
+                    
+                    rdfs:domain LoSeOn:LogisticsService ;
+                    
+                    rdfs:range LoSeOn:LogisticsService ,
+                               LoSeOn:LogisticsStakeholder ;
+                    
+                    rdfs:domain LoSeOn:Resource .
+
+
+
+###  https://github.com/Michael-Gloeckner/LoSeOn#IsContrainedBy
+
+LoSeOn:IsContrainedBy rdf:type owl:ObjectProperty ;
+                      
+                      rdfs:label "IsContrainedBy"@en ;
+                      
+                      rdfs:comment "describes constrain of something by something"@en ;
+                      
+                      rdfs:range LoSeOn:Contraints ;
+                      
+                      rdfs:domain LoSeOn:LogisticsService .
+
+
+
+###  https://github.com/Michael-Gloeckner/LoSeOn#IsEnabledBy
+
+LoSeOn:IsEnabledBy rdf:type owl:ObjectProperty ;
+                   
+                   rdfs:label "IsEnabledBy"@en ;
+                   
+                   rdfs:comment "describes the enabling of sommething by sommething"@en ;
+                   
+                   rdfs:domain LoSeOn:Flow ;
+                   
+                   rdfs:range LoSeOn:Resource ;
+                   
+                   rdfs:domain LoSeOn:Transformation .
+
+
+
+###  https://github.com/Michael-Gloeckner/LoSeOn#IsMeasuredBy
+
+LoSeOn:IsMeasuredBy rdf:type owl:ObjectProperty ;
+                    
+                    rdfs:label "IsMeasuredBy"@en ;
+                    
+                    rdfs:comment "describes measurement of something by something"@en ;
+                    
+                    rdfs:domain LoSeOn:LogisticsService ;
+                    
+                    rdfs:range LoSeOn:SLA .
+
+
+
+###  https://github.com/Michael-Gloeckner/LoSeOn#IsPerformedBy
+
+LoSeOn:IsPerformedBy rdf:type owl:ObjectProperty ;
+                     
+                     rdfs:label "IsPerformedBy"@en ;
+                     
+                     rdfs:comment "describes the performance of something by something"@en ;
+                     
+                     rdfs:range LoSeOn:Active ,
+                                LoSeOn:LogisticsService ;
+                     
+                     rdfs:domain LoSeOn:Transformation .
+
+
+
+###  https://github.com/Michael-Gloeckner/LoSeOn#IsProvidedBy
+
+LoSeOn:IsProvidedBy rdf:type owl:ObjectProperty ;
+                    
+                    rdfs:label "IsProvidedBy"@en ;
+                    
+                    rdfs:comment "describes the provision of something by something"@en ;
+                    
+                    rdfs:domain LoSeOn:LogisticsService ;
+                    
+                    rdfs:range LoSeOn:LogisticsStakeholder .
+
+
+
+
+
+#################################################################
+#
 #    Classes
 #
 #################################################################
+
+
+###  https://github.com/Michael-Gloeckner/LoSeOn#Active
+
+LoSeOn:Active rdf:type owl:Class ;
+              
+              rdfs:label "Active"@en ;
+              
+              rdfs:subClassOf LoSeOn:Power ;
+              
+              rdfs:comment "An Active Resource posseses the ability of transforming a logistics entity by itself."@en .
+
+
+
+###  https://github.com/Michael-Gloeckner/LoSeOn#Character
+
+LoSeOn:Character rdf:type owl:Class ;
+                 
+                 rdfs:label "Character"@en ;
+                 
+                 rdfs:subClassOf LoSeOn:Resource ;
+                 
+                 rdfs:comment "The Character describes the consistence of a Resource. It is either Informational OR Physical."@en .
+
 
 
 ###  https://github.com/Michael-Gloeckner/LoSeOn#Contraints
@@ -31,11 +170,27 @@ LoSeOn:Contraints rdf:type owl:Class ;
 
 
 
+###  https://github.com/Michael-Gloeckner/LoSeOn#Control
+
+LoSeOn:Control rdf:type owl:Class ;
+               
+               rdfs:label "Control"@en ;
+               
+               rdfs:subClassOf LoSeOn:Flow ;
+               
+               rdfs:comment "Control is the Flow of information in order to trigger following LogisticsService."@en .
+
+
+
 ###  https://github.com/Michael-Gloeckner/LoSeOn#Cost
 
 LoSeOn:Cost rdf:type owl:Class ;
             
-            rdfs:subClassOf LoSeOn:Transformation .
+            rdfs:label "Cost"@en ;
+            
+            rdfs:subClassOf LoSeOn:Transformation ;
+            
+            rdfs:comment "A LogisticsService tranforms costs of the overall service in a certain kind of way. Usually Costs increase by the usage of a Service."@en .
 
 
 
@@ -67,8 +222,7 @@ LoSeOn:Environmental rdf:type owl:Class ;
 
 LoSeOn:Flow rdf:type owl:Class ;
             
-            rdfs:label """Flow
-"""@en ;
+            rdfs:label "Flow"@en ;
             
             rdfs:comment "The several flows connect two or more logistics services with each other. Different kinds of flows can be distinguished."@en .
 
@@ -78,7 +232,24 @@ LoSeOn:Flow rdf:type owl:Class ;
 
 LoSeOn:Information rdf:type owl:Class ;
                    
-                   rdfs:subClassOf LoSeOn:Transformation .
+                   rdfs:label "Information"@en ;
+                   
+                   rdfs:subClassOf LoSeOn:Transformation ;
+                   
+                   rdfs:comment "A LogisticsService could transform Information in a certain kind of way."@en .
+
+
+
+###  https://github.com/Michael-Gloeckner/LoSeOn#Informational
+
+LoSeOn:Informational rdf:type owl:Class ;
+                     
+                     rdfs:label "Informational"@en ;
+                     
+                     rdfs:subClassOf LoSeOn:Character ,
+                                     LoSeOn:Flow ;
+                     
+                     rdfs:comment "Either one of the Flows connecting LogisticsService or the characteristics of a certain Resource could be Informational."@en .
 
 
 
@@ -86,7 +257,11 @@ LoSeOn:Information rdf:type owl:Class ;
 
 LoSeOn:Location rdf:type owl:Class ;
                 
-                rdfs:subClassOf LoSeOn:Transformation .
+                rdfs:label "Location"@en ;
+                
+                rdfs:subClassOf LoSeOn:Transformation ;
+                
+                rdfs:comment "A LogisticsService could transform Location in a certain kind of way."@en .
 
 
 
@@ -94,8 +269,7 @@ LoSeOn:Location rdf:type owl:Class ;
 
 LoSeOn:LogisticsService rdf:type owl:Class ;
                         
-                        rdfs:label """LogisticsService
-"""@en ;
+                        rdfs:label "LogisticsService"@en ;
                         
                         rdfs:comment """A Logistics Service is characterized by general service characteristics. This includes a pre-defined set of inputs, outputs and transformations that take place during its execution. Further important is the usage of resources and the application of knowledge and skills within activities or processes in order to generate benefit for another entity or for the entity itself.
 
@@ -139,11 +313,52 @@ LoSeOn:NonMandatory rdf:type owl:Class ;
 
 
 
+###  https://github.com/Michael-Gloeckner/LoSeOn#Passive
+
+LoSeOn:Passive rdf:type owl:Class ;
+               
+               rdfs:label "Passive"@en ;
+               
+               rdfs:subClassOf LoSeOn:Power ;
+               
+               rdfs:comment "An Passive Resource does not posses the ability of transforming a logistics entity by itself. It is transformed by an Active Resource."@en .
+
+
+
+###  https://github.com/Michael-Gloeckner/LoSeOn#Physical
+
+LoSeOn:Physical rdf:type owl:Class ;
+                
+                rdfs:label "Physical"@en ;
+                
+                rdfs:subClassOf LoSeOn:Character ,
+                                LoSeOn:Flow ;
+                
+                rdfs:comment "Either one of the Flows connecting LogisticsService or the characteristics of a certain Resource could be Physical."@en .
+
+
+
+###  https://github.com/Michael-Gloeckner/LoSeOn#Power
+
+LoSeOn:Power rdf:type owl:Class ;
+             
+             rdfs:label "Power"@en ;
+             
+             rdfs:subClassOf LoSeOn:Resource ;
+             
+             rdfs:comment "The Power describes the ability of a Resource. It is either Active OR Passive."@en .
+
+
+
 ###  https://github.com/Michael-Gloeckner/LoSeOn#Product
 
 LoSeOn:Product rdf:type owl:Class ;
                
-               rdfs:subClassOf LoSeOn:Transformation .
+               rdfs:label "Product"@en ;
+               
+               rdfs:subClassOf LoSeOn:Transformation ;
+               
+               rdfs:comment "A LogisticsService could transform Product in a certain kind of way."@en .
 
 
 
@@ -151,7 +366,11 @@ LoSeOn:Product rdf:type owl:Class ;
 
 LoSeOn:Quality rdf:type owl:Class ;
                
-               rdfs:subClassOf LoSeOn:Transformation .
+               rdfs:label "Quality"@en ;
+               
+               rdfs:subClassOf LoSeOn:Transformation ;
+               
+               rdfs:comment "A LogisticsService could transform Quality of a Product in a certain kind of way."@en .
 
 
 
@@ -159,7 +378,11 @@ LoSeOn:Quality rdf:type owl:Class ;
 
 LoSeOn:Quantity rdf:type owl:Class ;
                 
-                rdfs:subClassOf LoSeOn:Transformation .
+                rdfs:label "Quantity"@en ;
+                
+                rdfs:subClassOf LoSeOn:Transformation ;
+                
+                rdfs:comment "A LogisticsService could transform Quantity of a Product in a certain kind of way."@en .
 
 
 
@@ -167,8 +390,7 @@ LoSeOn:Quantity rdf:type owl:Class ;
 
 LoSeOn:Resource rdf:type owl:Class ;
                 
-                rdfs:label """Resource
-"""@en ;
+                rdfs:label "Resource"@en ;
                 
                 rdfs:comment "A Resource is consumed during the conduction of a LogisticsService. It is either available again afterward (such as warehouse capacity or a truck) or not (such as some kind of one-way packaging)."@en .
 
@@ -200,7 +422,13 @@ LoSeOn:Social rdf:type owl:Class ;
 
 LoSeOn:Time rdf:type owl:Class ;
             
-            rdfs:subClassOf LoSeOn:Transformation .
+            rdfs:label "Time"@en ;
+            
+            rdfs:subClassOf LoSeOn:Transformation ;
+            
+            rdfs:comment "Time describes the temporal starting and ending points of a LogisticsService."@en ;
+            
+            rdfs:seeAlso "http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl"@en .
 
 
 
